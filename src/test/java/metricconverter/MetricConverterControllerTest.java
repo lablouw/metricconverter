@@ -31,7 +31,7 @@ public class MetricConverterControllerTest {
 
     @Test
     public void test_convertDistance() throws Exception {
-        DistanceUnit base = DistanceUnit.METRE;
+        DistanceUnit base = DistanceUnit.METRES;
         for (DistanceUnit unit : DistanceUnit.values()) {
             String url = "/convertDistance?distance=1&fromUnit="+unit+"&toUnit="+base;
             System.out.println("Testing: "+url);
