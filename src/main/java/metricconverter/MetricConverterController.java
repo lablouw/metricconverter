@@ -17,7 +17,7 @@ public class MetricConverterController {
             case KELVIN: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return celciusToFarenheit(temperature - Units.CELSIUS_TO_KELVIN);
+                        return celsiusToFahrenheit(temperature - Units.CELSIUS_TO_KELVIN);
                     case CELSIUS:
                         return temperature - Units.CELSIUS_TO_KELVIN;
                     case KELVIN:
@@ -27,7 +27,7 @@ public class MetricConverterController {
             case CELSIUS: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return celciusToFarenheit(temperature);
+                        return celsiusToFahrenheit(temperature);
                     case CELSIUS:
                         return temperature;
                     case KELVIN:
@@ -39,9 +39,9 @@ public class MetricConverterController {
                     case FAHRENHEIT:
                         return temperature;
                     case CELSIUS:
-                        return farenheitToCelcius(temperature);
+                        return fahrenheitToCelsius(temperature);
                     case KELVIN:
-                        return farenheitToCelcius(temperature) + Units.CELSIUS_TO_KELVIN;
+                        return fahrenheitToCelsius(temperature) + Units.CELSIUS_TO_KELVIN;
                 }
             }
         }
@@ -54,11 +54,11 @@ public class MetricConverterController {
         return mass * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
     }
 
-    private double celciusToFarenheit(double c) {
+    private double celsiusToFahrenheit(double c) {
         return c * 9d / 5d + 32;
     }
 
-    private double farenheitToCelcius(double f) {
+    private double fahrenheitToCelsius(double f) {
         return (f - 32) * 5d / 9d;
     }
 
