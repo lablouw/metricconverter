@@ -10,7 +10,7 @@ public class Units {
     public static final double CELSIUS_TO_KELVIN = -273.15;
 
     static {
-        diatanceUnits.put(DistanceUnit.METRE, 1d);
+        diatanceUnits.put(DistanceUnit.METRES, 1d);
         diatanceUnits.put(DistanceUnit.MILLIMETRES, 0.001d);
         diatanceUnits.put(DistanceUnit.INCHES, 0.0254d);
         diatanceUnits.put(DistanceUnit.FEET, 0.3048d);
