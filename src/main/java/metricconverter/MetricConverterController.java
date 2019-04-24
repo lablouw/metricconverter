@@ -3,6 +3,11 @@ package metricconverter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class MetricConverterController {
 
@@ -52,6 +57,33 @@ public class MetricConverterController {
     @RequestMapping("/convertMass")
     public double convertMass(Double mass, MassUnit fromUnit, MassUnit toUnit){
         return mass * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
+    }
+
+    @RequestMapping("/availableMassUnits")
+    public List<String> availableMassUnits() {
+        List<String> vals = new ArrayList<>();
+        for (MassUnit m : MassUnit.values()) {
+            vals.add(m.name());
+        }
+        return vals;
+    }
+
+    @RequestMapping("/availableTemperatureUnits")
+    public List<String> availableTemperatureUnits() {
+        List<String> vals = new ArrayList<>();
+        for (TemperatureUnit m : TemperatureUnit.values()) {
+            vals.add(m.name());
+        }
+        return vals;
+    }
+
+    @RequestMapping("/availableDistanceUnits")
+    public List<String> availableDistanceUnit() {
+        List<String> vals = new ArrayList<>();
+        for (DistanceUnit m : DistanceUnit.values()) {
+            vals.add(m.name());
+        }
+        return vals;
     }
 
     private double celsiusToFahrenheit(double c) {
