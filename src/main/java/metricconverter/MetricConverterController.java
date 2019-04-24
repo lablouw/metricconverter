@@ -22,9 +22,9 @@ public class MetricConverterController {
             case KELVIN: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return celsiusToFahrenheit(temperature - Units.CELSIUS_TO_KELVIN);
+                        return celsiusToFahrenheit(temperature + Units.CELSIUS_TO_KELVIN);
                     case CELSIUS:
-                        return temperature - Units.CELSIUS_TO_KELVIN;
+                        return temperature + Units.CELSIUS_TO_KELVIN;
                     case KELVIN:
                         return temperature;
                 }
@@ -36,7 +36,7 @@ public class MetricConverterController {
                     case CELSIUS:
                         return temperature;
                     case KELVIN:
-                        return temperature + Units.CELSIUS_TO_KELVIN;
+                        return temperature - Units.CELSIUS_TO_KELVIN;
                 }
             }
             case FAHRENHEIT: {
@@ -46,7 +46,7 @@ public class MetricConverterController {
                     case CELSIUS:
                         return fahrenheitToCelsius(temperature);
                     case KELVIN:
-                        return fahrenheitToCelsius(temperature) + Units.CELSIUS_TO_KELVIN;
+                        return fahrenheitToCelsius(temperature) - Units.CELSIUS_TO_KELVIN;
                 }
             }
         }
@@ -60,7 +60,7 @@ public class MetricConverterController {
     }
 
     @RequestMapping("/availableMassUnits")
-    public List<String> availableMassUnits() {
+    public List<String> getAvailableMassUnits() {
         List<String> vals = new ArrayList<>();
         for (MassUnit m : MassUnit.values()) {
             vals.add(m.name());
@@ -69,7 +69,7 @@ public class MetricConverterController {
     }
 
     @RequestMapping("/availableTemperatureUnits")
-    public List<String> availableTemperatureUnits() {
+    public List<String> getAvailableTemperatureUnits() {
         List<String> vals = new ArrayList<>();
         for (TemperatureUnit m : TemperatureUnit.values()) {
             vals.add(m.name());
@@ -78,7 +78,7 @@ public class MetricConverterController {
     }
 
     @RequestMapping("/availableDistanceUnits")
-    public List<String> availableDistanceUnit() {
+    public List<String> getAvailableDistanceUnit() {
         List<String> vals = new ArrayList<>();
         for (DistanceUnit m : DistanceUnit.values()) {
             vals.add(m.name());
