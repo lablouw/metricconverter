@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map, tap, catchError } from 'rxjs/operators';
+import { map, tap, retry, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
@@ -38,19 +38,25 @@ constructor(private http: HttpClient) {
     map(this.extractData));
   }
 
-  convertTemperature(temperature, fromUnit, toUnit): Observable<any> {
-    return this.http.get(this.apiURL + '/convertTemperature?temperature='+temperature+'&fromUnit='+fromUnit+'&toUnit='+toUnit).pipe(
-    map(this.extractData));
+  convertTemperature(value, fromUnit, toUnit): Observable<any> {
+    return this.http.get(this.apiURL + '/convertTemperature?value='+value+'&fromUnit='+fromUnit+'&toUnit='+toUnit)
+    .pipe(
+      retry(1)
+    )
   }
 
-  convertMass(mass, fromUnit, toUnit): Observable<any> {
-    return this.http.get(this.apiURL + '/convertTemperature?mass='+mass+'&fromUnit='+fromUnit+'&toUnit='+toUnit).pipe(
-    map(this.extractData));
+  convertMass(value, fromUnit, toUnit): Observable<any> {
+    return this.http.get(this.apiURL + '/convertMass?value='+value+'&fromUnit='+fromUnit+'&toUnit='+toUnit)
+    .pipe(
+      retry(1)
+    )
   }
 
-  convertDistance(distance, fromUnit, toUnit): Observable<any> {
-    return this.http.get(this.apiURL + '/convertDistance?mass='+distance+'&fromUnit='+fromUnit+'&toUnit='+toUnit).pipe(
-    map(this.extractData));
+  convertDistance(value, fromUnit, toUnit): Observable<any> {
+    return this.http.get(this.apiURL + '/convertDistance?value='+value+'&fromUnit='+fromUnit+'&toUnit='+toUnit)
+    .pipe(
+      retry(1)
+    )
   }
 
 }
