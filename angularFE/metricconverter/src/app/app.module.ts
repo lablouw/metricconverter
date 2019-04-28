@@ -1,36 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
-
-const appRoutes: Routes = [
-  {
-    path: 'getAvailableTemperatureUnits',
-    data: { title: 'Available Temperature Units' }
-  },
-  {
-    path: 'convertTemperature',
-    data: { title: 'Convert temperature' }
-  }
-]
 @NgModule({
   declarations: [
-    AppComponent,
-    TemperatureUnitComponent,
-    MassUnitComponent,
-    DistanceUnitComponent
+    AppComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
-    FormsModule,
     BrowserModule,
-    HttpClientModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
