@@ -12,41 +12,41 @@ import java.util.Map;
 public class MetricConverterController {
 
     @RequestMapping("/convertDistance")
-    public double convertDistance(Double distance, DistanceUnit fromUnit, DistanceUnit toUnit) {
-        return distance * Units.getDistanceUnits().get(fromUnit) / Units.getDistanceUnits().get(toUnit);
+    public double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
+        return value * Units.getDistanceUnits().get(fromUnit) / Units.getDistanceUnits().get(toUnit);
     }
 
     @RequestMapping("/convertTemperature")
-    public double convertTemperature(Double temperature, TemperatureUnit fromUnit, TemperatureUnit toUnit) throws Exception {
+    public double convertTemperature(Double value, TemperatureUnit fromUnit, TemperatureUnit toUnit) throws Exception {
         switch (fromUnit) {
             case KELVIN: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return celsiusToFahrenheit(temperature + Units.CELSIUS_TO_KELVIN);
+                        return celsiusToFahrenheit(value + Units.CELSIUS_TO_KELVIN);
                     case CELSIUS:
-                        return temperature + Units.CELSIUS_TO_KELVIN;
+                        return value + Units.CELSIUS_TO_KELVIN;
                     case KELVIN:
-                        return temperature;
+                        return value;
                 }
             }
             case CELSIUS: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return celsiusToFahrenheit(temperature);
+                        return celsiusToFahrenheit(value);
                     case CELSIUS:
-                        return temperature;
+                        return value;
                     case KELVIN:
-                        return temperature - Units.CELSIUS_TO_KELVIN;
+                        return value - Units.CELSIUS_TO_KELVIN;
                 }
             }
             case FAHRENHEIT: {
                 switch (toUnit) {
                     case FAHRENHEIT:
-                        return temperature;
+                        return value;
                     case CELSIUS:
-                        return fahrenheitToCelsius(temperature);
+                        return fahrenheitToCelsius(value);
                     case KELVIN:
-                        return fahrenheitToCelsius(temperature) - Units.CELSIUS_TO_KELVIN;
+                        return fahrenheitToCelsius(value) - Units.CELSIUS_TO_KELVIN;
                 }
             }
         }
@@ -55,8 +55,8 @@ public class MetricConverterController {
     }
 
     @RequestMapping("/convertMass")
-    public double convertMass(Double mass, MassUnit fromUnit, MassUnit toUnit){
-        return mass * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
+    public double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit){
+        return value * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
     }
 
     @RequestMapping("/availableMassUnits")
