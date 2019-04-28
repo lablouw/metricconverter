@@ -1,3 +1,17 @@
 <p>
-  convert-mass works!
+<h2>Convert mass</h2>
+<div>
+  <input type="text" [(ngModel)]="convertDetails.value" placeholder="Mass">
+</div>
+From:
+<select [(ngModel)]="convertDetails.fromUnit">
+  <option></option>
+</select>
+To:
+<select [(ngModel)]="convertDetails.toUnit">
+  <option></option>
+</select>
+<div class="form-group">
+  <button (click)="convertMass(convertDetails.value, convertDetails.fromUnit, convertDetails.toUnit)">Convert</button>
+</div>
 </p>

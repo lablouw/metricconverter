@@ -1,3 +1,23 @@
 <p>
-  convert-temperature works!
+
+<h2>Convert temperature</h2>
+<div>
+  <input type="text" [(ngModel)]="convertDetails.value" placeholder="Temperature">
+</div>
+From:
+<select [(ngModel)]="convertDetails.fromUnit">
+  <option value=tempUnit>CELSIUS</option>
+  <option value=tempUnit>FAHRENHEIT</option>
+  <option value=tempUnit>KELVIN</option>
+</select>
+To:
+<select [(ngModel)]="convertDetails.toUnit">
+  <option value=tempUnit>CELSIUS</option>
+  <option value=tempUnit>FAHRENHEIT</option>
+  <option value=tempUnit>KELVIN</option>
+</select>
+<div class="form-group">
+  <button (click)="convertTemperature(convertDetails.value, convertDetails.fromUnit, convertDetails.toUnit)">Convert</button>
+</div>
+
 </p>

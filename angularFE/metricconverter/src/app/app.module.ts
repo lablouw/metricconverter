@@ -10,8 +10,8 @@ import { ConvertDistanceComponent } from './convert-distance/convert-distance.co
 
 const routes: Routes = [
 { path: 'convert-temperature', component: ConvertTemperatureComponent },
-{ path: 'employee-details/:id', component: ConvertDistanceComponent },
-{ path: 'update-employee', component: ConvertMassComponent }
+{ path: 'convert-distance', component: ConvertDistanceComponent },
+{ path: 'convert-mass', component: ConvertMassComponent }
 ];
 
 @NgModule({

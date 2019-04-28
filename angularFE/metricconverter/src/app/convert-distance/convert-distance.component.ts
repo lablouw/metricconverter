@@ -9,7 +9,7 @@ styleUrls: ['./convert-distance.component.css']
 })
 export class ConvertDistanceComponent implements OnInit {
 
-@Input() convertDetails = { temp: '', fromUnit: '', toUnit: '' }
+@Input() convertDetails = { value: '', fromUnit: '', toUnit: '' }
 
 constructor(
     public restApi: RestApiService,
@@ -19,8 +19,8 @@ constructor(
   ngOnInit() { }
 
   convertDistance(data) {
-    this.restApi.convertDistance(this.convertDetails.temp, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
-      this.router.navigate(['/'])
+    this.restApi.convertDistance(this.convertDetails.value, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
+      this.router.navigate(['/index'])
     })
   }
 

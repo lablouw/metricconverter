@@ -9,7 +9,7 @@ styleUrls: ['./convert-temperature.component.css']
 })
 export class ConvertTemperatureComponent implements OnInit {
 
-@Input() convertDetails = { temp: '', fromUnit: '', toUnit: '' }
+@Input() convertDetails = { value: '', fromUnit: '', toUnit: '' }
 
 constructor(
     public restApi: RestApiService,
@@ -19,8 +19,8 @@ constructor(
   ngOnInit() { }
 
   convertTemperature(data) {
-    this.restApi.convertTemperature(this.convertDetails.temp, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
-      this.router.navigate(['/'])
+    this.restApi.convertTemperature(this.convertDetails.value, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
+      this.router.navigate(['/index'])
     })
   }
 

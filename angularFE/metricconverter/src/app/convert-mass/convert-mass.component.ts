@@ -9,7 +9,7 @@ styleUrls: ['./convert-mass.component.css']
 })
 export class ConvertMassComponent implements OnInit {
 
-@Input() convertDetails = { temp: '', fromUnit: '', toUnit: '' }
+@Input() convertDetails = { value: '', fromUnit: '', toUnit: '' }
 
 constructor(
     public restApi: RestApiService,
@@ -19,8 +19,8 @@ constructor(
   ngOnInit() { }
 
   convertMass(data) {
-    this.restApi.convertMass(this.convertDetails.temp, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
-      this.router.navigate(['/'])
+    this.restApi.convertMass(this.convertDetails.value, this.convertDetails.fromUnit, this.convertDetails.toUnit).subscribe((data: {}) => {
+      this.router.navigate(['/index'])
     })
   }
 

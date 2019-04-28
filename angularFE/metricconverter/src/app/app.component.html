@@ -6,16 +6,6 @@
 </div>
 <h2>Convert here </h2>
 <ul>
-  Available units:
-  <li>
-    <h2>Available Distance Units</h2>
-    <li *ngFor="let u of temperatureUnits; let i=index;">
-      <a routerLink="/availableTemperatureUnits">
-        <span class="badge">{{i+1}}</span> {u}
-      </a>
-    </li>
-  <button class="convert"
-          (click)="convertTemperature(temperature, fromUnit, toUnit)">Convert Temperature</button>
 
 </ul>
 
