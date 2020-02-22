@@ -1,15 +1,16 @@
 package metricconverter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
+@Slf4j
 public class MetricConverterController {
+
 
     @RequestMapping("/convertDistance")
     public double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
@@ -56,6 +57,7 @@ public class MetricConverterController {
 
     @RequestMapping("/convertMass")
     public double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit){
+        log.info("convertMass [value={},fromUnit={},toUnit={}]", value, fromUnit, toUnit);
         return value * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
     }
 
