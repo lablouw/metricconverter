@@ -11,7 +11,6 @@ import java.util.List;
 @Slf4j
 public class MetricConverterController {
 
-
     @RequestMapping("/convertDistance")
     public double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
         return value * Units.getDistanceUnits().get(fromUnit) / Units.getDistanceUnits().get(toUnit);
@@ -56,7 +55,7 @@ public class MetricConverterController {
     }
 
     @RequestMapping("/convertMass")
-    public double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit){
+    public double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit) {
         log.info("convertMass [value={},fromUnit={},toUnit={}]", value, fromUnit, toUnit);
         return value * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
     }
