@@ -6,7 +6,7 @@
 <!--            TraceId and SpanId to be added to pattern as  %X{X-B3-TraceId:-}  and  %X{X-B3-SpanId:-}  -->
 <!--            See https://cloud.spring.io/spring-cloud-sleuth/reference/html/#configuration-properties-->
             <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %X{X-B3-TraceId:-} %X{X-B3-SpanId:-} %-5level %logger{36} - %msg%n
+                %d{HH:mm:ss.SSS} [%t] %X{TraceId:-} %X{SpanId:-} %-5level %logger{36} - %msg%n
             </Pattern>
         </layout>
     </appender>
