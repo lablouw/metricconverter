@@ -43,6 +43,7 @@
     </dependencyManagement>
 
     <dependencies>
+<!--        See locgback.xml for trace & span logging-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>

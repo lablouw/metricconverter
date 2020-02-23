@@ -18,10 +18,12 @@ public class RestBoundaryLoggerAspect {
 
         argsPattern = StringUtils.isEmpty(argsPattern) ? argsPattern : argsPattern.substring(0, argsPattern.length() - 1);
 
-        log.info(pjp.getSignature().getName() + " [args=" + argsPattern + "]", pjp.getArgs());
+        log.info("Inbound " + pjp.getSignature().getName() + (StringUtils.isEmpty(argsPattern) ? "" : " [args=" + argsPattern + "]"), pjp.getArgs());
 
         try {
-            return pjp.proceed();
+            Object ret = pjp.proceed();
+            log.info("Outbound " + pjp.getSignature().getName() + (ret == null ? "" : " [response={}]"), ret);
+            return ret;
         } catch (Throwable throwable) {
             log.error("Error in method " + pjp.getSignature().getName(), throwable);
             throw throwable;
