@@ -1,7 +1,7 @@
 package metricconverter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import java.util.List;
 @Slf4j
 public class MetricConverterController {
 
-    @RequestMapping("/convertDistance")
-    public double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
+    @GetMapping("/convertDistance")
+    public Double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
         return value * Units.getDistanceUnits().get(fromUnit) / Units.getDistanceUnits().get(toUnit);
     }
 
-    @RequestMapping("/convertTemperature")
-    public double convertTemperature(Double value, TemperatureUnit fromUnit, TemperatureUnit toUnit) throws Exception {
+    @GetMapping("/convertTemperature")
+    public Double convertTemperature(Double value, TemperatureUnit fromUnit, TemperatureUnit toUnit) throws Exception {
         switch (fromUnit) {
             case KELVIN: {
                 switch (toUnit) {
@@ -54,13 +54,12 @@ public class MetricConverterController {
         throw new Exception("sjofdah");
     }
 
-    @RequestMapping("/convertMass")
-    public double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit) {
-        log.info("convertMass [value={},fromUnit={},toUnit={}]", value, fromUnit, toUnit);
+    @GetMapping("/convertMass")
+    public Double convertMass(Double value, MassUnit fromUnit, MassUnit toUnit) {
         return value * Units.getMassUnits().get(fromUnit) / Units.getMassUnits().get(toUnit);
     }
 
-    @RequestMapping("/availableMassUnits")
+    @GetMapping("/availableMassUnits")
     public List<String> getAvailableMassUnits() {
         List<String> vals = new ArrayList<>();
         for (MassUnit m : MassUnit.values()) {
@@ -69,7 +68,7 @@ public class MetricConverterController {
         return vals;
     }
 
-    @RequestMapping("/availableTemperatureUnits")
+    @GetMapping("/availableTemperatureUnits")
     public List<String> getAvailableTemperatureUnits() {
         List<String> vals = new ArrayList<>();
         for (TemperatureUnit m : TemperatureUnit.values()) {
@@ -78,7 +77,7 @@ public class MetricConverterController {
         return vals;
     }
 
-    @RequestMapping("/availableDistanceUnits")
+    @GetMapping("/availableDistanceUnits")
     public List<String> getAvailableDistanceUnit() {
         List<String> vals = new ArrayList<>();
         for (DistanceUnit m : DistanceUnit.values()) {
@@ -96,7 +95,7 @@ public class MetricConverterController {
     }
 
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index() {
         return "Converter!";
     }
