@@ -3,10 +3,10 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-<!--            TraceId and SpanId to be added to pattern as  %X{X-B3-TraceId:-}  and  %X{X-B3-SpanId:-}  -->
+<!--            TraceId and SpanId to be added to pattern as  %X{traceId:-default}  and  %X{spanId:-default}  -->
 <!--            See https://cloud.spring.io/spring-cloud-sleuth/reference/html/#configuration-properties-->
             <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %X{TraceId:-} %X{SpanId:-} %-5level %logger{36} - %msg%n
+                %d{HH:mm:ss.SSS} [%t] %X{traceId:-No_TraceId} %X{spanId:-No_SpanId} %-5level %logger{36} - %msg%n
             </Pattern>
         </layout>
     </appender>
