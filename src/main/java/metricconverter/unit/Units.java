@@ -1,4 +1,4 @@
-package metricconverter;
+package metricconverter.unit;
 
 import java.util.Collections;
 import java.util.HashMap;

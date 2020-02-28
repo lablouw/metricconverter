@@ -4,6 +4,10 @@ import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import metricconverter.unit.DistanceUnit;
+import metricconverter.unit.MassUnit;
+import metricconverter.unit.TemperatureUnit;
+import metricconverter.unit.Units;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package metricconverter;
+package metricconverter.unit;
 
 public enum DistanceUnit {
     MILLIMETRE,
