@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 @Aspect
 @Slf4j
 public class RestBoundaryLoggerAspect {
-    @Around("execution(public * metricconverter.controller.MetricConverterController.*(..))")
+    @Around("execution(public * metricconverter.controller.*.*(..))")
     public Object logConvert(ProceedingJoinPoint pjp) throws Throwable {
         String argsPattern = "";
         for (int i = 0; i < pjp.getArgs().length; i++) {
