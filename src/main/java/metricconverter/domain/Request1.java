@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DomainRequest1 {
+public class Request1 {
 
 	private String requestString1;
 	private int requestInt1;

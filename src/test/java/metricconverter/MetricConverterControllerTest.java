@@ -28,7 +28,7 @@ public class MetricConverterControllerTest {
 
     @Test
     public void test_index() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/metricConverter").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("Converter!")));
     }
@@ -37,7 +37,7 @@ public class MetricConverterControllerTest {
     public void test_convertDistance() throws Exception {
         DistanceUnit base = DistanceUnit.METRE;
         for (DistanceUnit unit : DistanceUnit.values()) {
-            String url = "/convertDistance?value=1&fromUnit="+unit+"&toUnit="+base;
+            String url = "/metricConverter/convertDistance?value=1&fromUnit="+unit+"&toUnit="+base;
             System.out.println("Testing: "+url);
             mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
@@ -49,7 +49,7 @@ public class MetricConverterControllerTest {
     public void test_convertMass() throws Exception {
         MassUnit base = MassUnit.KILOGRAM;
         for (MassUnit unit : MassUnit.values()) {
-            String url = "/convertMass?value=1&fromUnit="+unit+"&toUnit="+base;
+            String url = "/metricConverter/convertMass?value=1&fromUnit="+unit+"&toUnit="+base;
             System.out.println("Testing: "+url);
             mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
@@ -63,7 +63,7 @@ public class MetricConverterControllerTest {
         double k = 273.15;
         double f = 32;
 
-        String baseUrl = "/convertTemperature?value={temp}&fromUnit={from}&toUnit={to}";
+        String baseUrl = "/metricConverter/convertTemperature?value={temp}&fromUnit={from}&toUnit={to}";
 
         String url = baseUrl.replace("{temp}", String.valueOf(c))
                 .replace("{from}", TemperatureUnit.CELSIUS.name())

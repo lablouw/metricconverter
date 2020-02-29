@@ -6,14 +6,21 @@ import metricconverter.unit.MassUnit;
 import metricconverter.unit.TemperatureUnit;
 import metricconverter.unit.Units;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/metricConverter")
 @Slf4j
 public class MetricConverterController {
+
+    @GetMapping
+    public String index() {
+        return "Converter!";
+    }
 
     @GetMapping("/convertDistance")
     public Double convertDistance(Double value, DistanceUnit fromUnit, DistanceUnit toUnit) {
@@ -99,9 +106,5 @@ public class MetricConverterController {
     }
 
 
-    @GetMapping("/")
-    public String index() {
-        return "Converter!";
-    }
 
 }

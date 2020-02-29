@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DomainResponse2 {
+public class Request2 {
 
-	private String responseString2;
-	private int responseInt2;
+	private String requestString2;
+	private int requestInt2;
 
 }
