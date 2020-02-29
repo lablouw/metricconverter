@@ -1,4 +1,4 @@
-package metricconverter.domain.v1.model;
+package metricconverter.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

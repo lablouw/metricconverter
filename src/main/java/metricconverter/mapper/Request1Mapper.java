@@ -1,6 +1,6 @@
 package metricconverter.mapper;
 
-import metricconverter.domain.v1.model.Request1;
+import metricconverter.domain.model.Request1;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
