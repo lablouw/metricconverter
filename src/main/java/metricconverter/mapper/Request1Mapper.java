@@ -1,5 +1,6 @@
 package metricconverter.mapper;
 
+import metricconverter.domain.v1.model.Request1;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -9,5 +10,5 @@ import org.mapstruct.factory.Mappers;
 public interface Request1Mapper {
     Request1Mapper INSTANCE = Mappers.getMapper(Request1Mapper.class);
 
-    metricconverter.domain.Request1 toDomain(metricconverter.api.model.Request1 value);
+    Request1 toDomain(metricconverter.api.v1.model.Request1 value);
 }

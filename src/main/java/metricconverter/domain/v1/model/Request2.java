@@ -1,4 +1,4 @@
-package metricconverter.domain;
+package metricconverter.domain.v1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Request1 {
+public class Request2 {
 
-	private String requestString1;
-	private int requestInt1;
+	private String requestString2;
+	private int requestInt2;
 
 }

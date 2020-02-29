@@ -1,4 +1,4 @@
-package metricconverter.api.model;
+package metricconverter.api.v1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Response1 {
+public class Response2 {
 
-	private String responseString1;
-	private int responseInt1;
+	private String responseString2;
+	private int responseInt2;
 
 }
