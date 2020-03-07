@@ -26,7 +26,7 @@ public class TestServiceImpl implements TestService {
     public ResponseEntity<Response1> testGet1(@RequestBody Request1 apiRequest1) {
         metricconverter.domain.model.Request1 domainRequest1 = Request1Mapper.INSTANCE.toDomain(apiRequest1);
 
-        metricconverter.domain.model.Response1 domainResponse1 = new metricconverter.domain.model.Response1(domainRequest1.getRequestString1(), domainRequest1.getRequestInt1());
+        metricconverter.domain.model.Response1 domainResponse1 = new metricconverter.domain.model.Response1(domainRequest1.getRequestString1() + domainRequest1.getRequestString1(), domainRequest1.getRequestInt1() * 2);
 
         Response1 apiResponse1 = Response1Mapper.INSTANCE.toApi(domainResponse1);
         return ResponseEntity.ok(apiResponse1);
@@ -36,7 +36,7 @@ public class TestServiceImpl implements TestService {
     public ResponseEntity<Response2> testGet2(@RequestBody Request2 apiRequest2) {
         metricconverter.domain.model.Request2 domainRequest2 = Request2Mapper.INSTANCE.toDomain(apiRequest2);
 
-        metricconverter.domain.model.Response2 domainResponse2 = new metricconverter.domain.model.Response2(domainRequest2.getRequestString2(), domainRequest2.getRequestInt2());
+        metricconverter.domain.model.Response2 domainResponse2 = new metricconverter.domain.model.Response2(domainRequest2.getRequestString2() + domainRequest2.getRequestString2(), domainRequest2.getRequestInt2() * 2);
 
         Response2 apiResponse2 = Response2Mapper.INSTANCE.toApi(domainResponse2);
         return ResponseEntity.ok(apiResponse2);
