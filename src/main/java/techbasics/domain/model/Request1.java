@@ -1,4 +1,4 @@
-package techbasics.domain.restservice.model;
+package techbasics.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Response2 {
+public class Request1 {
 
-	private String responseString2;
-	private int responseInt2;
+	private String requestString1;
+	private int requestInt1;
 
 }

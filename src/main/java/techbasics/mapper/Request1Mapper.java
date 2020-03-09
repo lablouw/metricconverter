@@ -1,6 +1,6 @@
 package techbasics.mapper;
 
-import techbasics.domain.restservice.model.Request1;
+import techbasics.domain.model.Request1;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

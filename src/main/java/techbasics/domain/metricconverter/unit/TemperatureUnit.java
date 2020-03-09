@@ -1,4 +1,4 @@
-package techbasics.unit;
+package techbasics.domain.metricconverter.unit;
 
 public enum TemperatureUnit {
     CELSIUS,

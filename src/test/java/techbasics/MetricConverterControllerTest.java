@@ -4,10 +4,10 @@ import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import techbasics.unit.DistanceUnit;
-import techbasics.unit.MassUnit;
-import techbasics.unit.TemperatureUnit;
-import techbasics.unit.Units;
+import techbasics.domain.metricconverter.unit.DistanceUnit;
+import techbasics.domain.metricconverter.unit.MassUnit;
+import techbasics.domain.metricconverter.unit.TemperatureUnit;
+import techbasics.domain.metricconverter.unit.Units;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
